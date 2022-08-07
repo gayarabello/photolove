@@ -1,2 +1,158 @@
-<app-photo-collection [photos]="photos" (updateLoved)="updateLovedImages()"></app-photo-collection>
-<h3 class="text-center" *ngIf="photos.length === 0">there is nothing here yet</h3>
+<style>
+  .motion-bg {
+    background: #c7ccd2;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 12rem;
+    overflow: hidden;
+    clip-path: circle(50% at 50% 50%);
+    margin: 0 auto;
+    transform: scale(0.6);
+  }
+  .cup {
+    opacity: 90%;
+    transform: scale(1.3);
+  }
+  .coffee {
+    padding-top: 6rem;
+    padding-left: 2rem;
+    z-index: -1;
+    text-align: center;
+  }
+  .smoke-spacing {
+    padding: 0.8rem 0 0 2rem;
+  }
+  .smoke {
+    position: absolute;
+    animation-duration: 2s;
+    animation-name: upanddown;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  @keyframes upanddown {
+    from {
+      top: 90px;
+      left: 70px;
+      opacity: 1;
+    }
+
+    to {
+      top: 30px;
+      left: 70px;
+      opacity: 0;
+    }
+  }
+  
+</style>
+<div class="fill-height">
+  <app-photo-collection
+    [photos]="photos"
+    (updateLoved)="loadLovedPhotos()"
+  ></app-photo-collection>
+
+  <div *ngIf="photos.length === 0">
+    <div class="motion-bg">
+      <div class="cup">
+        <div class="smoke smoke-spacing">
+          <svg
+            width="18"
+            height="61"
+            viewBox="0 0 18 61"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.5"
+              d="M12.3002 0C9.70023 5.2 8.10023 10.4 8.60023 14.8C8.80023 17 9.60023 19 10.6002 20.9C10.9002 21.4 11.2002 21.8 11.4002 22.3L12.4002 23.7L13.6002 25.3C14.1002 26 14.6002 26.7 15.0002 27.4C16.7002 30.4 17.7002 33.9 17.9002 37.2C18.1002 40.6 17.4002 43.9 16.3002 46.8C15.2002 49.8 13.6002 52.4 11.7002 54.8C9.80023 57.1 7.70023 59.2 5.10023 60.8C7.00023 55.2 8.50023 50 9.10023 45.1C9.70023 40.1 8.90023 35.8 6.80023 32.1C6.50023 31.6 6.30023 31.2 5.90023 30.7L5.40023 29.9C5.20023 29.6 4.90023 29.2 4.70023 28.9C4.30023 28.2 3.80023 27.5 3.40023 26.8C3.00023 26 2.70023 25.2 2.40023 24.5C1.20023 21.3 0.600227 17.7 1.20023 14.3C1.80023 10.9 3.20023 7.9 5.20023 5.4C7.20023 3.1 9.60023 1.2 12.3002 0Z"
+              fill="url(#paint0_linear)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear"
+                x1="9.46893"
+                y1="60.9342"
+                x2="9.46893"
+                y2="0"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" />
+                <stop offset="0.995" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="smoke">
+          <svg
+            width="18"
+            height="61"
+            viewBox="0 0 18 61"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.5"
+              d="M12.3002 0C9.70023 5.2 8.10023 10.4 8.60023 14.8C8.80023 17 9.60023 19 10.6002 20.9C10.9002 21.4 11.2002 21.8 11.4002 22.3L12.4002 23.7L13.6002 25.3C14.1002 26 14.6002 26.7 15.0002 27.4C16.7002 30.4 17.7002 33.9 17.9002 37.2C18.1002 40.6 17.4002 43.9 16.3002 46.8C15.2002 49.8 13.6002 52.4 11.7002 54.8C9.80023 57.1 7.70023 59.2 5.10023 60.8C7.00023 55.2 8.50023 50 9.10023 45.1C9.70023 40.1 8.90023 35.8 6.80023 32.1C6.50023 31.6 6.30023 31.2 5.90023 30.7L5.40023 29.9C5.20023 29.6 4.90023 29.2 4.70023 28.9C4.30023 28.2 3.80023 27.5 3.40023 26.8C3.00023 26 2.70023 25.2 2.40023 24.5C1.20023 21.3 0.600227 17.7 1.20023 14.3C1.80023 10.9 3.20023 7.9 5.20023 5.4C7.20023 3.1 9.60023 1.2 12.3002 0Z"
+              fill="url(#paint0_linear)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear"
+                x1="9.46893"
+                y1="60.9342"
+                x2="9.46893"
+                y2="0"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" />
+                <stop offset="0.995" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="coffee">
+          <svg
+            width="130"
+            height="116"
+            viewBox="0 0 130 116"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M48.1 19.2C74.6649 19.2 96.2 14.9019 96.2 9.6C96.2 4.29807 74.6649 0 48.1 0C21.5351 0 0 4.29807 0 9.6C0 14.9019 21.5351 19.2 48.1 19.2Z"
+              fill="#F0F0F0"
+            />
+            <path
+              d="M48.1 19.2001C21.5 19.2001 0 14.9001 0 9.6001V105.8C0 111.1 21.5 115.4 48.1 115.4C74.7 115.4 96.2 111.1 96.2 105.8V9.6001C96.2 14.9001 74.7 19.2001 48.1 19.2001Z"
+              fill="#FAFAFA"
+            />
+            <path
+              d="M48.1004 16.7999C19.6004 16.7999 3.40039 12.0999 2.40039 9.4999C3.50039 7.0999 19.6004 2.3999 48.1004 2.3999C76.6004 2.3999 92.8004 7.0999 93.8004 9.6999C92.8004 12.0999 76.6004 16.7999 48.1004 16.7999Z"
+              fill="#F0F0F0"
+            />
+            <path
+              d="M10.7002 13.2001C18.3002 15.1001 31.0002 16.8001 48.1002 16.8001C65.2002 16.8001 77.9002 15.1001 85.5002 13.2001C77.9002 11.3001 65.2002 9.6001 48.1002 9.6001C31.0002 9.6001 18.3002 11.3001 10.7002 13.2001Z"
+              fill="#7B848E"
+            />
+            <path
+              d="M72.2002 109.3C82.8002 108 89.4002 106.1 91.4002 104.7V18.8C86.0002 20.8 79.1002 22 72.2002 22.8V109.3Z"
+              fill="#F0F0F0"
+            />
+            <path
+              d="M9.5998 20.3C7.8998 19.9 6.2998 19.4 4.7998 18.8V104.7C5.6998 105.3 7.2998 105.9 9.5998 106.6V20.3Z"
+              fill="#F0F0F0"
+            />
+            <path
+              d="M96.2002 24.1001V33.7001C109.5 33.7001 120.3 44.5001 120.3 57.8001C120.3 71.1001 109.5 81.9001 96.2002 81.9001V91.5001C114.8 91.5001 129.9 76.4001 129.9 57.8001C129.9 39.2001 114.8 24.1001 96.2002 24.1001Z"
+              fill="#F0F0F0"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <h4 class="text-center grey--text">Loved cats will appear here</h4>
+  </div>
+</div>

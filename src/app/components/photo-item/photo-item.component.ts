@@ -19,7 +19,7 @@ export class PhotoItemComponent implements OnInit {
     this.liked = Boolean(localStorage.getItem(String(this.photo.id)))  
   }
 
-  onClick(id: string | undefined){
+  onClick(id: string | undefined): void{
   if(!this.liked){
     localStorage.setItem(`${id}`, JSON.stringify(this.photo));
   } else {

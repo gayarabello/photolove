@@ -1,10 +1,25 @@
-<div class="content-block">
-    <header class="container space-between">
-        <h1>{{title}}</h1>        
+<style>
+    .sticky {
+        position: sticky;
+        top: 0px;
+    }
+    .content-height{
+        min-height: calc(100vh - 116px);
+    }
+
+</style>
+<div class="content-block sticky white">
+    <header class="container space-between ">
+        <h1 routerLink="/">❤️ {{title}}</h1>        
         <div>
             <a [class.active-anchor]="hasRoute('/')" routerLink="/">home</a>
             <a [class.active-anchor]="hasRoute('/loved')" routerLink="/loved">loved</a>
         </div>
     </header>
+</div>
+<div class="content-block content-height my-4">
     <router-outlet></router-outlet>
 </div>
+<footer class="purple white--text pa-4 text-center">
+    Made with ❤️ for all cat lovers out there.
+</footer>

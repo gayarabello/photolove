@@ -8,6 +8,7 @@ import { Photo } from '../../Photo';
 })
 export class PhotoCollectionComponent implements OnInit {
   @Input() photos!: Photo[] ;
+  @Input() loading!: boolean ;
   @Output() updateLoved = new EventEmitter();
   
   ngOnInit(): void {

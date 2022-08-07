@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'; 
 import { Photo } from '../Photo';
 
@@ -12,8 +12,22 @@ export class PhotoService {
 
   constructor( private http:HttpClient ) { }
 
-  getImages(skip: number): Observable<Photo[]>{ 
+  getPhotos(skip: number): Observable<Photo[]>{  
     return this.http.get<Photo[]>(this.apiUrl(skip))
+  }
+
+
+  getLoved(): Photo[]{ 
+    const myPhotos = Object.keys(localStorage)
+    const photos = myPhotos.map((item) => {
+      const myItem = localStorage.getItem(item)
+      if(myItem) {
+        return JSON.parse(myItem)
+      } else {
+        return null;
+      }
+    })
+    return photos;
   }
 }
 

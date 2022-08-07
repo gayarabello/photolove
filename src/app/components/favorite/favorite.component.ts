@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotoService } from '../../services/photo.service';
 import { Photo } from '../../Photo';
 
 @Component({
@@ -9,21 +10,13 @@ import { Photo } from '../../Photo';
 export class FavoriteComponent implements OnInit {
   photos: Photo[] = [];
   
-  constructor() { }
+  constructor( private photoService: PhotoService ) { }
 
   ngOnInit(): void {
-    this.updateLovedImages()
+    this.loadLovedPhotos()
   }
 
-  updateLovedImages(){
-    const myPhotos = Object.keys(localStorage)
-    this.photos = myPhotos.map((item) => {
-      const myItem = localStorage.getItem(item)
-      if(myItem) {
-        return JSON.parse(myItem)
-      } else {
-        return null;
-      }
-    })
+  loadLovedPhotos(){
+    this.photos = this.photoService.getLoved()
   }
 }

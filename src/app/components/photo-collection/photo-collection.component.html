@@ -1,8 +1,40 @@
+<style>
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+  }
+  
+  @media screen and (min-width: 600px){
+    .card {
+      width: 50%;
+      max-width: 50%;
+    }
+  }
+
+  @media screen and (min-width: 900px){
+    .card {
+      width: 20%;
+      max-width: 20%;
+    }
+  }
+  
+  .container {
+    display: flex;
+  }
+
+  .wrapped {
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+</style>
 <div class="container wrapped">
+
+  <div *ngFor="let photo of photos" class="card">
     <app-photo-item
-    class="base-card"
-    *ngFor="let photo of photos"
-    [photo]="photo"
-    (updateLoved)="updateLovedPhotos()"
+      [photo]="photo"
+      (updateLoved)="updateLovedPhotos()"
     ></app-photo-item>
+  </div>
 </div>

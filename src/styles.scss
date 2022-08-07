@@ -1,84 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
-
+//Reset
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-div {
-    margin: 0;
-    padding: 0;
-}
-$purple: #7A5AF8;
-$grey: #4d5d6d;
-$dark-purple: #6938EF;
-$orange: #FB6514;
-$dark-orange: #EC4A0A;
-
-h1 {
-   font-size: 24px;
-   font-weight: 500;
-   color: $grey;
 }
 
 body {
     font-family: 'Inter', sans-serif;
 }
 
-button{
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 0.25rem;
-    display: block;
+// Color Variables
+$purple: #7A5AF8;
+$grey: #4d5d6d;
+$dark-purple: #6938EF;
+$orange: #FB6514;
+$dark-orange: #EC4A0A;
+
+// Spacing Variables
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.5rem;
+$spacing-6: 2rem;
+
+
+//Typography
+h1 {
+   font-size: 24px;
+   font-weight: 500;
+   cursor: pointer;
+   color: $grey;
 }
 
-.purple {
-    background-color: #7A5AF8;
-}
-
-.purple--text {
-    color: #7A5AF8;
-}
-
-.orange {
-    background-color: $orange;
-}
-
-.orange--text {
-    color: $orange;
-}
-
-.base-card {
-    background-color: white;    
-    border-radius: 1rem;
-    box-shadow: 0px 2px 8px 2px rgba(30, 30, 30, 0.1);    
-    margin: 1rem;
-    width: 20%;
-    max-width: 20%;
-}
-
-.container {
-    display: flex;    
-}
-
-.wrapped {
-    flex-wrap: wrap;
-    box-sizing: border-box;
-}
-
-.content-block {
-    max-width: 960px;
-    margin: 0 auto;
+h4 {
+    font-weight: 500;
 }
 
 .text-center {
     text-align: center;
 }
 
-.space-between {
-    justify-content: space-between;
+
+//Html
+button {
+    border: none;
+    padding: $spacing-1 $spacing-4;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: $spacing-1;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 img {
@@ -102,28 +76,153 @@ header {
     padding: 1rem 0;
 }
 
+
+//Spacing
+.pa-1{
+    padding: $spacing-1;
+}
+.pa-2{
+    padding: $spacing-2;
+}
+.pa-3{
+    padding: $spacing-3;
+}
+.pa-4{
+    padding: $spacing-4
+}
+.ma-1{
+    padding: $spacing-1;
+}
+.ma-2{
+    padding: $spacing-2;
+}
+.ma-3{
+    padding: $spacing-3;
+}
+.ma-4{
+    padding: $spacing-4
+}
+.px-1{
+    padding: $spacing-1;
+}
+.px-2{
+    padding: $spacing-2;
+}
+.px-3{
+    padding: $spacing-3;
+}
+.px-4{
+    padding: $spacing-4
+}
+.mx-1{
+    padding: $spacing-1;
+}
+.mx-2{
+    padding: $spacing-2;
+}
+.mx-3{
+    padding: $spacing-3;
+}
+.mx-4{
+    padding: $spacing-4
+}
+.py-1{
+    padding: $spacing-1;
+}
+.py-2{
+    padding: $spacing-2;
+}
+.py-3{
+    padding: $spacing-3;
+}
+.py-4{
+    padding: $spacing-4
+}
+.my-1{
+    padding: $spacing-1;
+}
+.my-2{
+    padding: $spacing-2;
+}
+.my-3{
+    padding: $spacing-3;
+}
+.my-4{
+    padding: $spacing-4
+}
+
+
+//Colors
+.white {
+    background-color: white;
+}
+.grey {
+    background-color: $grey;
+}
+.purple {
+    background-color: $purple;
+}
+.orange {
+    background-color: $orange;
+}
+.white--text {
+    color: white;
+}
+.grey--text {
+    color: $grey;
+}
+.purple--text {
+    color: $purple;
+}
+.orange--text {
+    color: $orange;
+}
+
+// Flexbox
+.container {
+    display: flex;    
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.content-block {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
 .active-anchor {
     color: $purple;    
     font-weight: 500;    
 }
 
-.filled-button {
-    background-color: $purple;        
-    color: white;        
+.primary-btn {
     padding: 0.5rem 1rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $purple;
+    
+    &.filled {
+        color: white;
+        background-color: $purple;
+    }
+    &.outlined {
+        color: $purple;
+        background-color: white;        
+    }    
 }
-.outline-button {
-    color: $purple;        
-    padding: 0.5rem 1rem;
-    border: 1px solid $purple;        
-    background-color: white;        
-}
-.orange-button {
+
+.secondary-button {
+    font-size: 18px;
     background-color: $orange;        
     color: white;        
-    padding: 0.75rem 1rem; 
-}
-.orange-button:hover {
-    background-color: $dark-orange;        
-    color: white;     
+    padding: 1rem;
+    max-width: 240px;
+    margin: 1rem; 
+    
+    &:hover {
+        background-color: $dark-orange;        
+        color: white;     
+    }
 }

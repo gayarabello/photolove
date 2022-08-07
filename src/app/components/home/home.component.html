@@ -1,4 +1,14 @@
-<app-photo-collection [photos]="photos"></app-photo-collection>
+<app-photo-collection
+  *ngIf="!error"
+  [photos]="photos"
+  [loading]="loading"
+></app-photo-collection>
+<h5 *ngIf="error">Error!</h5>
 <div class="text-center">
-    <button class="orange-button" (click)="getImages()">Load New Cats</button>
+  <button
+    class="secondary-button"
+    (click)="error ? reloadPhotos() : loadPhotos()"
+  >
+    {{ error ? 'Reload Cats' : loading ? 'Loading...' : 'Load New Cats' }}
+  </button>
 </div>
