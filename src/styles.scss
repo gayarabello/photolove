@@ -1,1 +1,129 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+div {
+    margin: 0;
+    padding: 0;
+}
+$purple: #7A5AF8;
+$grey: #4d5d6d;
+$dark-purple: #6938EF;
+$orange: #FB6514;
+$dark-orange: #EC4A0A;
+
+h1 {
+   font-size: 24px;
+   font-weight: 500;
+   color: $grey;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+button{
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    display: block;
+}
+
+.purple {
+    background-color: #7A5AF8;
+}
+
+.purple--text {
+    color: #7A5AF8;
+}
+
+.orange {
+    background-color: $orange;
+}
+
+.orange--text {
+    color: $orange;
+}
+
+.base-card {
+    background-color: white;    
+    border-radius: 1rem;
+    box-shadow: 0px 2px 8px 2px rgba(30, 30, 30, 0.1);    
+    margin: 1rem;
+    width: 20%;
+    max-width: 20%;
+}
+
+.container {
+    display: flex;    
+}
+
+.wrapped {
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.content-block {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+img {
+    object-fit: cover;
+    aspect-ratio: 1;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+a {
+    font-size: 1rem;
+    text-decoration: none;
+    color: $grey;
+    margin: 0 0.75rem;  
+}
+
+a:hover {    
+    color: $purple;    
+}
+
+header {
+    padding: 1rem 0;
+}
+
+.active-anchor {
+    color: $purple;    
+    font-weight: 500;    
+}
+
+.filled-button {
+    background-color: $purple;        
+    color: white;        
+    padding: 0.5rem 1rem;
+}
+.outline-button {
+    color: $purple;        
+    padding: 0.5rem 1rem;
+    border: 1px solid $purple;        
+    background-color: white;        
+}
+.orange-button {
+    background-color: $orange;        
+    color: white;        
+    padding: 0.75rem 1rem; 
+}
+.orange-button:hover {
+    background-color: $dark-orange;        
+    color: white;     
+}

@@ -1,0 +1,12 @@
+<div >
+    <img [src]="'https://cataas.com/cat/'+ photo.id" width="100%"/> 
+    <div [ngStyle]="{'padding': '16px'}">
+        <button        
+            (click)="onClick(photo.id)"
+            [class.filled-button]="liked"
+            [class.outline-button]="!liked"
+            >
+            {{ liked ? 'Unlove' : 'Love' }}
+        </button>
+    </div>
+</div>

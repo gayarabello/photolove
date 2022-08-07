@@ -1,0 +1,2 @@
+<app-photo-collection [photos]="photos" (updateLoved)="updateLovedImages()"></app-photo-collection>
+<h3 class="text-center" *ngIf="photos.length === 0">there is nothing here yet</h3>

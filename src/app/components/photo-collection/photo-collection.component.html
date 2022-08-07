@@ -1,0 +1,8 @@
+<div class="container wrapped">
+    <app-photo-item
+    class="base-card"
+    *ngFor="let photo of photos"
+    [photo]="photo"
+    (updateLoved)="updateLovedPhotos()"
+    ></app-photo-item>
+</div>
